@@ -20,11 +20,11 @@ resource "aws_vpc" "vpc_worker" {
 }
 
 resource "aws_internet_geteway" "igw_master" {
-    provider = "aws.region_master"
+    provider = aws.region_master
     vpc_id = "aws_vpc.vpc_master.id"
 } 
 
 resource "aws_internet_geteway" "igw_worker" {
-    provider = "aws.region_worker"
+    provider = aws.region_worker
     vpc_id = "aws_vpc.vpc_worker.id"
 } 
