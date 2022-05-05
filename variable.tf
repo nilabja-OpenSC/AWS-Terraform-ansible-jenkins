@@ -32,3 +32,18 @@ variable "private_subnet" {
     type = string
     default = "private_subnet"
 }
+
+variable "lb_443_cidr" {
+    type = string
+    default = "0.0.0.0/0"
+}
+
+variable "lb_80_cidr" {
+    type = string
+    default = "0.0.0.0/0"
+}
+
+variable "external_internet_cidr" {
+    type = string
+    default = "0.0.0.0/0"
+}
