@@ -3,6 +3,10 @@ resource "aws_subnet" "master_public_subnet_1" {
     availability_zone = element(data.aws_availability_zones.azs.names, 0)
     vpc_id = aws_vpc.vpc_master.id
     cidr_block = "10.0.0.0/24"
+
+    tags = {
+        Name = $(var.environment1)-$(var.public_subnet)-1
+    }
 }
 
 resource "aws_subnet" "master_public_subnet_2" {
@@ -10,6 +14,10 @@ resource "aws_subnet" "master_public_subnet_2" {
     availability_zone = element(data.aws_availability_zones.azs.names, 1)
     vpc_id = aws_vpc.vpc_master.id
     cidr_block = "10.0.1.0/24"
+
+    tags = {
+        Name = $(var.environment1)-$(var.public_subnet)-2
+    }    
 }
 
 resource "aws_subnet" "worker_public_subnet_1" {
@@ -17,6 +25,10 @@ resource "aws_subnet" "worker_public_subnet_1" {
     availability_zone = element(data.aws_availability_zones.azs_worker.names, 0)
     vpc_id = aws_vpc.vpc_worker.id
     cidr_block = "10.1.0.0/24"
+
+    tags = {
+        Name = $(var.environment2)-$(var.public_subnet)-1
+    }    
 }
 
 resource "aws_subnet" "worker_public_subnet_2" {
@@ -24,4 +36,8 @@ resource "aws_subnet" "worker_public_subnet_2" {
     availability_zone = element(data.aws_availability_zones.azs_worker.names, 1)
     vpc_id = aws_vpc.vpc_worker.id
     cidr_block = "10.1.1.0/24"
+
+    tags = {
+        Name = $(var.environment2)-$(var.public_subnet)-2
+    }
 }

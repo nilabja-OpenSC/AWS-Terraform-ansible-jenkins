@@ -22,9 +22,15 @@ resource "aws_vpc" "vpc_worker" {
 resource "aws_internet_gateway" "igw_master" {
     provider = aws.region_master
     vpc_id = aws_vpc.vpc_master.id
+    tags = {
+      Name = "master-vpc-igw"
+  }   
 } 
 
 resource "aws_internet_gateway" "igw_worker" {
     provider = aws.region_worker
     vpc_id = aws_vpc.vpc_worker.id
+    tags = {
+      Name = "worker-vpc-igw"
+  }   
 } 
