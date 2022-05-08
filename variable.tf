@@ -5,7 +5,7 @@ variable "profile" {
 
 variable "region_master" {
     type = string
-    default = "us-west-1"
+    default = "us-east-2"
 }
 
 variable "region_worker" {
