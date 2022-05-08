@@ -48,7 +48,7 @@ variable "external_internet_cidr" {
     default = "0.0.0.0/0"
 }
 
-variable "worker_count" {
+variable "workers_count" {
     type = number
     default = 1
 }
