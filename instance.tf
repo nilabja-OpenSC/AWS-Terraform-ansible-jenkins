@@ -66,7 +66,7 @@ resource "aws_instance" "jenkins-worker" {
   provisioner "local-exec" {
     command = <<EOF
 aws --profile ${var.profile} ec2 wait instance-status-ok --region ${var.region_worker} --instance-ids ${self.id} \
-ansible-playbook --extra-vars 'passed_in_hosts=tag_Name_${self.tags.Name}' ansible_templates/jenkins_worker_sample.yaml
+&& ansible-playbook --extra-vars 'passed_in_hosts=tag_Name_${self.tags.Name}' ansible_templates/jenkins_worker_sample.yaml
 EOF
   }
 }
